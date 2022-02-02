@@ -14,19 +14,20 @@ class handler(BaseHTTPRequestHandler):
         dic = dict(query_string_list) 
 
         #grab a specific word from the api we are calling from 
-        #https://serverless-khaki-alpha.vercel.app/api/define?word=python 
+        #EXAMPLE: https://serverless-khaki-alpha.vercel.app/api/define?word=python 
         #find if I asked for a word; look in the query string and see if word is in there (word = python)
-        if "word" in dic: 
+
+        if "food" in dic: 
             #url w/o the seach key then we concat the thing we are looking for 
-            url = 'http://apiurl'  
-            r = request.get(url + dic['word'])
+            url = 'https://api.spoonacular.com/recipes/complexSearch'  
+            r = request.get(url + dic['food'])
             #set that json payload we are looking at to a variable (data)
             data = r.json() 
             definitions = []  
             #there is a for loop here look at you notes from class 30
         
         else: 
-            message = "Please give me a word to define."
+            message = "Please give me a food to get for you."
         
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
