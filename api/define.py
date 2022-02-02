@@ -14,8 +14,9 @@ class handler(BaseHTTPRequestHandler):
         dic = dict(query_string_list) 
 
         #grab a specific word from the api we are calling from 
-        #https://serverless-khaki-alpha.vercel.app/api/define?word=python 
+        #EXAMPLE: https://serverless-khaki-alpha.vercel.app/api/define?word=python 
         #find if I asked for a word; look in the query string and see if word is in there (word = python)
+
         if "word" in dic: 
             #url w/o the seach key then we concat the thing we are looking for 
             url = 'http://apiurl'  
