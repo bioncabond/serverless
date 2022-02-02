@@ -11,15 +11,14 @@ class handler(BaseHTTPRequestHandler):
     dic = dict(query_string_list)
 
     if "word" in dic: 
-        message = "we are in"
-        # url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-        # r = requests.get(url + dic['word'])
-        # data = r.json()
-        # definitions = []
-        # for word_data in data:
-        #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
-        #     definitions.append(definition)
-        # message = str(definitions)        
+        url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+        r = requests.get(url + dic['word'])
+        data = r.json()
+        definitions = []
+        for word_data in data:
+            definition = word_data["meanings"][0]["definitions"][0]["definition"]
+            definitions.append(definition)
+        message = str(definitions)        
     else:
         message = "Please give me a word to define"
 
