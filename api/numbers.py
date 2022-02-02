@@ -8,31 +8,20 @@ class handler(BaseHTTPRequestHandler):
         url_components = parse.urlsplit(url_path) 
         query_string_list = parse.parse_qsl(url_components.query) 
         dic = dict(query_string_list) 
-        
-        if "number" in dic:
+              
+        if "number" in dic: 
             url = 'http://numbersapi.com/'
-            r = requests.get(url)
+            r = requests.get(url + dic["number"]) 
             data = r.json()
-            definitions = []
-            # for word_data in data:
-            #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
-            #     definitions.append(definition)
-            message = str(definitions)        
-        else:
-            message = "Please give me a NUMBER to define"
-        
-        # if "number" in dic: 
-        #     url = 'http://numbersapi.com/'
-        #     r = requests.get(url + dic["number"]) 
 
-        #     data = r.json()
-        #     num_facts = []  
-        #     for num_data in data:
-        #         facts = num_data["text"]
-        #         num_facts.append(facts)
-        #     message = str(num_facts)     
-        # else: 
-        #     message = "Please pick a whole number."
+            num_facts = []  
+            # for num_data in data:
+            #     facts = num_data["text"]
+            #     num_facts.append(facts)
+            message = str(num_facts)     
+        
+        else: 
+            message = "Please pick a whole number."
 
 
         self.send_response(200)
