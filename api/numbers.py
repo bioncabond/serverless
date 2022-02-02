@@ -15,11 +15,11 @@ class handler(BaseHTTPRequestHandler):
            
            #with this out of the code; you got to the [] for num facts
             data = r.json()
-
             num_facts = []  
+
             for num_data in data:
-                facts = num_data["text"]
-                num_facts.append(facts)
+                fact = num_data["text"][0]
+                num_facts.append(fact)
             message = str(num_facts)     
         
         else: 
