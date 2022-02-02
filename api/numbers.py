@@ -7,16 +7,18 @@ class handler(BaseHTTPRequestHandler):
         url_path = self.path 
         url_components = parse.urlsplit(url_path) 
         query_string_list = parse.parse_qsl(url_components.query) 
-        dic = dict(query_string_list) 
+        # dic = dict(query_string_list) 
+        dic = 8
         
         
         if "number" in dic: 
             url = 'http://numbersapi.com/'
-            r = requests.get(url + dic['number'])
+            r = requests.get(url + dic['number']) 
+            print(f"this is r {r}")
             data = r.json()
             num_facts = []  
             for num_data in data:
-                facts = num_data[0]
+                facts = num_data["text"]
                 num_facts.append(facts)
             message = str(num_facts)     
         else: 
