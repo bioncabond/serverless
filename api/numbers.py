@@ -11,7 +11,7 @@ class handler(BaseHTTPRequestHandler):
         
         if "number" in dic:
             url = 'http://numbersapi.com/'
-            r = requests.get(url + dic['number'])
+            r = requests.get(url)
             data = r.json()
             definitions = []
             # for word_data in data:
