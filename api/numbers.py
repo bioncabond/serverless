@@ -13,12 +13,13 @@ class handler(BaseHTTPRequestHandler):
             url = 'http://numbersapi.com/'
             r = requests.get(url + dic["number"]) 
            
-            #data = r.json()
+           #with this out of the code; you got to the [] for num facts
+            data = r.json()
 
             num_facts = []  
-            # for num_data in data:
-            #     facts = num_data["text"]
-            #     num_facts.append(facts)
+            for num_data in data:
+                facts = num_data["text"]
+                num_facts.append(facts)
             message = str(num_facts)     
         
         else: 
