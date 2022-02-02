@@ -12,10 +12,9 @@ class handler(BaseHTTPRequestHandler):
         
         if "number" in dic: 
             url = 'http://numbersapi.com/'
-            r = requests.get(url)
+            r = requests.get(url + dic['number'])
             data = r.json()
             num_facts = []  
-
             for num_data in data:
                 facts = num_data["text"]
                 num_facts.append(facts)
