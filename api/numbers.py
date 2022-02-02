@@ -9,9 +9,9 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query) 
         dic = dict(query_string_list) 
         
-        if "word" in dic:
-            url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-            r = requests.get(url + dic['word'])
+        if "number" in dic:
+            url = 'http://numbersapi.com/'
+            r = requests.get(url + dic['number'])
             data = r.json()
             definitions = []
             # for word_data in data:
@@ -19,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
             #     definitions.append(definition)
             message = str(definitions)        
         else:
-            message = "Please give me a word to define"
+            message = "Please give me a NUMBER to define"
         
         # if "number" in dic: 
         #     url = 'http://numbersapi.com/'
