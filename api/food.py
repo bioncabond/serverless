@@ -9,7 +9,7 @@ class handler(BaseHTTPRequestHandler):
         url_components = parse.urlsplit(url_path) 
         query_string_list = parse.parse_qsl(url_components) 
         dic = dict(query_string_list) 
-        #api_key = d15c3cde055c42d0a0e536fa32f3ccdc
+        api_key = d15c3cde055c42d0a0e536fa32f3ccdc
 
         #grab a specific word from the api we are calling from 
         #EXAMPLE: https://serverless-khaki-alpha.vercel.app/api/define?word=python 
@@ -18,8 +18,8 @@ class handler(BaseHTTPRequestHandler):
 #
         if "food" in dic: 
             #url w/o the seach key then we concat the thing we are looking for 
-            #url = 'https://https://api.spoonacular.com/recipes/716429/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc'
-            url = 'https://api.spoonacular.com/food/search?food=apple'  
+            # url = 'https://https://api.spoonacular.com/recipes/716429/information?apiKey={api_key}'
+            url = 'https://api.spoonacular.com/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc&food/search?food=apple'  
             r = requests.get(url)
 
 
