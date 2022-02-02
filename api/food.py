@@ -15,14 +15,14 @@ class handler(BaseHTTPRequestHandler):
         #EXAMPLE: https://serverless-khaki-alpha.vercel.app/api/define?word=python 
         #find if I asked for a word; look in the query string and see if word is in there (word = python)
 
-#https://serverless-b7aoyej96-bioncabond.vercel.app/api/food?food=pasta
+#
         if "food" in dic: 
             #url w/o the seach key then we concat the thing we are looking for 
-            print("url = 'https://api.spoonacular.com/recipes/716429/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc&includeNutrition=true.'") 
-            # r = requests.get(url + dic['food'])
+            url = 'https://api.spoonacular.com/recipes/716429/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc&includeNutrition=true'  
+            r = requests.get(url + dic['food'])
 
 
-            # #set that json payload we are looking at to a variable (data)
+            #set that json payload we are looking at to a variable (data)
             # data = r.json() 
             # definitions = []  
             # for word_data in data:
