@@ -7,21 +7,18 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):      
         url_path = self.path 
         url_components = parse.urlsplit(url_path) 
-        query_string_list = parse.parse_qsl(url_components) 
+        query_string_list = parse.parse_qsl(url_components.query) 
         dic = dict(query_string_list) 
         
         if "number" in dic: 
             url = 'http://numbersapi.com/'
             r = requests.get(url)
-
-
-            #set that json payload we are looking at to a variable (data)
             data = r.json()
-            # print(f"{data}") 
             num_facts = []  
+
             for num_data in data:
-                definition = num_data["text"][0]
-                num_facts.append(definition)
+                facts = num_data["text"]
+                num_facts.append(facts)
             message = str(num_facts)     
         else: 
             message = "Please pick a whole number."
