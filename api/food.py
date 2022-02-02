@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
-from urllib import parse,request
-# import requests 
+from urllib import parse
+import requests 
 
 class handler(BaseHTTPRequestHandler):
 
@@ -21,7 +21,7 @@ class handler(BaseHTTPRequestHandler):
         if "food" in dic: 
             #url w/o the seach key then we concat the thing we are looking for 
             url = 'https://api.spoonacular.com/recipes/716429/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc&includeNutrition=true.'  
-            r = request.get(url + dic['food'])
+            r = requests.get(url + dic['food'])
 
 
             #set that json payload we are looking at to a variable (data)
