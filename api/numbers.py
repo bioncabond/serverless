@@ -11,7 +11,7 @@ class handler(BaseHTTPRequestHandler):
               
         if "number" in dic: 
             url = 'http://numbersapi.com/'
-            r = requests.get(url + dic["number"]) 
+            r = requests.get(url + dic(int(["number"])))
            
            #with this out of the code; you got to the [] for num facts
             data = r.json()
