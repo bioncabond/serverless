@@ -9,19 +9,30 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query) 
         dic = dict(query_string_list) 
         
-        
-        if "number" in dic: 
-            url = 'http://numbersapi.com/'
-            r = requests.get(url + dic['number']) 
-
+        if "word" in dic:
+            url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+            r = requests.get(url + dic['word'])
             data = r.json()
-            num_facts = []  
-            for num_data in data:
-                facts = num_data["text"]
-                num_facts.append(facts)
-            message = str(num_facts)     
-        else: 
-            message = "Please pick a whole number."
+            definitions = []
+            for word_data in data:
+                definition = word_data["meanings"][0]["definitions"][0]["definition"]
+                definitions.append(definition)
+            message = str(definitions)        
+        else:
+            message = "Please give me a word to define"
+        
+        # if "number" in dic: 
+        #     url = 'http://numbersapi.com/'
+        #     r = requests.get(url + dic["number"]) 
+
+        #     data = r.json()
+        #     num_facts = []  
+        #     for num_data in data:
+        #         facts = num_data["text"]
+        #         num_facts.append(facts)
+        #     message = str(num_facts)     
+        # else: 
+        #     message = "Please pick a whole number."
 
 
         self.send_response(200)
