@@ -12,7 +12,8 @@ class handler(BaseHTTPRequestHandler):
         if "number" in dic: 
             url = 'http://numbersapi.com/'
             r = requests.get(url + dic["number"]) 
-            data = r.json()
+           
+            #data = r.json()
 
             num_facts = []  
             # for num_data in data:
@@ -21,16 +22,13 @@ class handler(BaseHTTPRequestHandler):
             message = str(num_facts)     
         
         else: 
-            message = "Please pick a whole number."
-
+            message = "PLEASE PICK A NUMBER."
 
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers() 
 
         self.wfile.write(message.encode())
-
-
         return 
 
 
