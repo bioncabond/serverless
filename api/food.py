@@ -18,18 +18,19 @@ class handler(BaseHTTPRequestHandler):
 #
         if "food" in dic: 
             #url w/o the seach key then we concat the thing we are looking for 
-            url = 'https://api.spoonacular.com/recipes/716429/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc'  
+            #url = 'https://https://api.spoonacular.com/recipes/716429/information?apiKey=d15c3cde055c42d0a0e536fa32f3ccdc'
+            url = 'https://api.spoonacular.com/food/search?food=apple'  
             r = requests.get(url)
 
 
             #set that json payload we are looking at to a variable (data)
             data = r.json()
             print(f"{data}") 
-            # definitions = []  
-            # for word_data in data:
-            #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
-            #     definitions.append(definition)
-            # message = str(definitions)     
+            definitions = []  
+            for food_data in data:
+                definition = food_data["searchResults"][0]
+                definitions.append(definition)
+            message = str(definitions)     
         
         else: 
             message = "Please give me a food to get for you."
