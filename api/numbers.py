@@ -3,12 +3,12 @@ from urllib import parse
 import requests
 
 class handler(BaseHTTPRequestHandler):
-
     def do_GET(self):      
         url_path = self.path 
         url_components = parse.urlsplit(url_path) 
         query_string_list = parse.parse_qsl(url_components.query) 
         dic = dict(query_string_list) 
+        
         
         if "number" in dic: 
             url = 'http://numbersapi.com/'
@@ -16,7 +16,7 @@ class handler(BaseHTTPRequestHandler):
             data = r.json()
             num_facts = []  
             for num_data in data:
-                facts = num_data["text"]
+                facts = num_data[0]
                 num_facts.append(facts)
             message = str(num_facts)     
         else: 
@@ -29,6 +29,7 @@ class handler(BaseHTTPRequestHandler):
 
         self.wfile.write(message.encode())
 
+        
         return 
 
 
