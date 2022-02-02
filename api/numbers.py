@@ -14,9 +14,9 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + dic['word'])
             data = r.json()
             definitions = []
-            for word_data in data:
-                definition = word_data["meanings"][0]["definitions"][0]["definition"]
-                definitions.append(definition)
+            # for word_data in data:
+            #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
+            #     definitions.append(definition)
             message = str(definitions)        
         else:
             message = "Please give me a word to define"
