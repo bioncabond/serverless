@@ -31,7 +31,7 @@ class handler(BaseHTTPRequestHandler):
             Did you know: {fact}  
 
             Refresh to get another random fact about {actual_number}
-            """)
+            """) 
         else: 
             message = "PLEASE PICK A NUMBER." 
 
