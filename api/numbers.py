@@ -23,7 +23,9 @@ class handler(BaseHTTPRequestHandler):
             data = req.json()
             num_facts = []  
 
-            fact = data.get('text')
+            if data:
+                print(dic['number'])
+                fact = data.get('text')
             # number_fact = data.get('number')
 
                 # num_facts.append(fact)
