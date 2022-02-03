@@ -12,7 +12,10 @@ class handler(BaseHTTPRequestHandler):
               
         if "number" in dic: 
             url = 'http://numbersapi.com/'
-            req = requests.get(url + dic['number'])
+            url = url + dic['number']
+            print(url)
+            req = requests.get(url)
+            
             print(req, "a small string")
 
            #with this out of the code; you got to the [] for num facts
