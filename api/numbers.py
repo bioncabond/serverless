@@ -26,8 +26,8 @@ class handler(BaseHTTPRequestHandler):
             for num_data in data:
                 fact = num_data["text"]
                 num_facts.append(fact)
+                print("num facts:", num_facts)
             message = str(num_facts)     
-        
         else: 
             message = "PLEASE PICK A NUMBER."
 
