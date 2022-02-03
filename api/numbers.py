@@ -21,17 +21,15 @@ class handler(BaseHTTPRequestHandler):
 
            #with this out of the code; you got to the [] for num facts
             data = req.json()
-            # num_facts = []  
-
+            
             if data.get('text'):
                 fact = data.get('text')
                 actual_number = data.get('number')
-                  
-                # num_facts.append(fact)
-                # print("num facts:", num_facts)
-            message = str(f"""{actual_number}
+
+            message = str(f"""
+            {actual_number}
             Did you know: {fact}  
-            
+
             Refresh to get another random fact about {actual_number}
             """)
         else: 
