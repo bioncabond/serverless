@@ -25,12 +25,12 @@ class handler(BaseHTTPRequestHandler):
 
             if data.get('text'):
                 fact = data.get('text')
-                print(f""" Did you know: {fact}""")
+                # print(f""" Did you know: {fact}""")
             # number_fact = data.get('number')
                   
                 # num_facts.append(fact)
                 # print("num facts:", num_facts)
-            message = str("did you know:",fact)
+            message = str(f"did you know:{fact}")
         else: 
             message = "PLEASE PICK A NUMBER." 
 
