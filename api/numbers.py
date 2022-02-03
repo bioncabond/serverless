@@ -24,7 +24,7 @@ class handler(BaseHTTPRequestHandler):
             num_facts = []  
 
             for num_data in data:
-                fact = num_data[3]
+                fact = num_data[0::]
                 num_facts.append(fact)
                 print("num facts:", num_facts)
             message = str(num_facts)     
@@ -32,8 +32,8 @@ class handler(BaseHTTPRequestHandler):
             message = "PLEASE PICK A NUMBER."
 
         self.send_response(200)
-        # self.send_header('Content-type', 'text/plain')
-        self.send_header('Content-type', 'application/json')
+        self.send_header('Content-type', 'text/plain')
+        # self.send_header('Content-type', 'application/json')
         self.end_headers() 
 
         self.wfile.write(message.encode())
