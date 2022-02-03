@@ -21,9 +21,9 @@ class handler(BaseHTTPRequestHandler):
 
            #with this out of the code; you got to the [] for num facts
             data = req.json()
-            num_facts = []  
+            # num_facts = []  
 
-            if data('number'):
+            if data():
                 fact = data.get('text')
                 print(f""" Did you know: {fact}""")
             # number_fact = data.get('number')
