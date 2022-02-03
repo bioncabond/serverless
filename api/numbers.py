@@ -13,7 +13,8 @@ class handler(BaseHTTPRequestHandler):
         if "number" in dic: 
             url = 'http://numbersapi.com/'
             req = requests.get(url + dic['number'])
-            print("This is a test!!")
+            print(req)
+
            #with this out of the code; you got to the [] for num facts
             data = req.json()
             num_facts = []  
