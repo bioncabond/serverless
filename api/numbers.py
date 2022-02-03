@@ -12,7 +12,8 @@ class handler(BaseHTTPRequestHandler):
               
         if "number" in dic: 
             url = 'http://numbersapi.com/'
-            url = url + dic['number']
+            url = url + dic['number'] + "?json"
+
             print(url)
             req = requests.get(url)
             
