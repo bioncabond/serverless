@@ -24,7 +24,7 @@ class handler(BaseHTTPRequestHandler):
             num_facts = []  
 
             for num_data in data:
-                fact = num_data["text"][0]
+                fact = num_data["text"]
                 num_facts.append(fact)
             message = str(num_facts)     
         
