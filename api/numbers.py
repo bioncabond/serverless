@@ -30,7 +30,7 @@ class handler(BaseHTTPRequestHandler):
                   
                 # num_facts.append(fact)
                 # print("num facts:", num_facts)
-            # message = str(fact)
+            message = str("did you know:" fact)
         else: 
             message = "PLEASE PICK A NUMBER." 
 
