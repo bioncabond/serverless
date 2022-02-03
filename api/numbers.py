@@ -23,7 +23,7 @@ class handler(BaseHTTPRequestHandler):
             data = req.json()
             # num_facts = []  
 
-            if data():
+            if data.get('text'):
                 fact = data.get('text')
                 print(f""" Did you know: {fact}""")
             # number_fact = data.get('number')
