@@ -14,13 +14,13 @@ class handler(BaseHTTPRequestHandler):
             req = requests.get(url + dic['number'])
            
            #with this out of the code; you got to the [] for num facts
-            req.json()
-            # num_facts = []  
+            data = req.json()
+            num_facts = []  
 
-            # for num_data in data:
-            #     fact = num_data[0]
-            #     num_facts.append(fact)
-            # message = str(num_facts)     
+            for num_data in data:
+                fact = num_data[0]
+                num_facts.append(fact)
+            message = str(num_facts)     
         
         else: 
             message = "PLEASE PICK A NUMBER."
