@@ -24,10 +24,11 @@ class handler(BaseHTTPRequestHandler):
             num_facts = []  
 
             for num_data in data:
-                fact = data.get('text')
-                num_facts.append(fact)
-                print("num facts:", num_facts)
-            message = str(num_facts)     
+                print("1")
+                # fact = data.get('text')
+                # num_facts.append(fact)
+                # print("num facts:", num_facts)
+            # message = str(num_facts)     
         else: 
             message = "PLEASE PICK A NUMBER."
 
