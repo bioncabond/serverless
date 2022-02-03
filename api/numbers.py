@@ -29,8 +29,9 @@ class handler(BaseHTTPRequestHandler):
                   
                 # num_facts.append(fact)
                 # print("num facts:", num_facts)
-            message = str(f"""{actual_number},
-            Did you know:{fact}, 
+            message = str(f"""{actual_number}
+            Did you know: {fact}  
+            (Press Enter to get another random fact about {actual_number})
             """)
         else: 
             message = "PLEASE PICK A NUMBER." 
