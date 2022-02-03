@@ -23,12 +23,12 @@ class handler(BaseHTTPRequestHandler):
             data = req.json()
             num_facts = []  
 
-            for num_data in data:
-                print("1")
+            # for num_data in data:
+            #     print("1")
                 # fact = data.get('text')
                 # num_facts.append(fact)
                 # print("num facts:", num_facts)
-            # message = str(num_facts)     
+            message = data   
         else: 
             message = "PLEASE PICK A NUMBER."
 
