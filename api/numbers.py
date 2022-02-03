@@ -24,9 +24,8 @@ class handler(BaseHTTPRequestHandler):
             num_facts = []  
 
             for num_data in data:
-                fact = num_data[0]
-                fact_2 = num_data[1]
-                num_facts.append(fact,fact_2)
+                fact = num_data[0] + num_data[1]
+                num_facts.append(fact)
                 print("num facts:", num_facts)
             message = str(num_facts)     
         else: 
