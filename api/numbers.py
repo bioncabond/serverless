@@ -24,15 +24,15 @@ class handler(BaseHTTPRequestHandler):
             num_facts = []  
 
             if data('number'):
-                print(dic['number'])
                 fact = data.get('text')
+                print(f""" Did you know: {fact}""")
             # number_fact = data.get('number')
-
+                  
                 # num_facts.append(fact)
                 # print("num facts:", num_facts)
             message = str(fact)
         else: 
-            message = "PLEASE PICK A NUMBER."
+            message = "PLEASE PICK A NUMBER." 
 
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
